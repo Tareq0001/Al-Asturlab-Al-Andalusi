@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الأسطرلاب الفلكي الأندلسي الملكي | Al-Asturlab Al-Andalusi</title>
+  
+  <!-- Master Royal Heritage Stylesheet -->
+  <link rel="stylesheet" href="css/astrolabe-master.css">
+</head>
+<body>
+
+  <div class="astrolabe-palace-container">
+
+    <!-- ==========================================
+         TOP IMPERIAL HERO HEADER
+         ========================================== -->
+    <header class="palace-hero">
+      <div class="hero-emblem">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C11.5 4 10 7 7 8C7 10 8 12 10 12.5C9.5 13.5 9 14.5 9 16C9 17.5 10 18.5 11 19C10.5 19.5 10 20.5 10 21.5H14C14 20.5 13.5 19.5 13 19C14 18.5 15 17.5 15 16C15 14.5 14.5 13.5 14 12.5C16 12 17 10 17 8C14 7 12.5 4 12 2M12 14.5C12.8 14.5 13.5 15.2 13.5 16C13.5 16.8 12.8 17.5 12 17.5C11.2 17.5 10.5 16.8 10.5 16C10.5 15.2 11.2 14.5 12 14.5Z"/>
+        </svg>
+      </div>
+
+      <div class="hero-subtitle">الأسطرلاب الفلكي الأندلسي الملكي • حاسوب الكون التناظري الخالد</div>
+      <h1 class="hero-title">الأسطرلاب الأندلسي الملكي</h1>
+
+      <p class="hero-description">
+        أعظم تحفة علمية في تاريخ البشرية: كيف اختزل علماء طليطلة وقرطبة قبة الفضاء اللانهائية في صفيحة برونزية مسطحة تحسب مواقع النجوم ومواقيت الصلاة وسمت القبلة بدقة متناهية.
+      </p>
+
+      <!-- Controls & City Plates Bar -->
+      <div class="hero-controls-bar">
+        <div class="city-selector-wrapper">
+          <label for="city-plate-select" style="font-weight: 700; color: var(--gold-bright);">صفيحة الإقليم (Latitude Plate):</label>
+          <select id="city-plate-select" class="plate-dropdown">
+            <option value="cordoba">قرطبة عاصمة الأندلس — عرض 37.8°</option>
+            <option value="toledo">طليطلة مرصد الزرقالي — عرض 39.8°</option>
+            <option value="seville">إشبيلية مهد الأسطرلاب — عرض 37.3°</option>
+            <option value="mecca">مكة المكرمة أم القرى — عرض 21.4°</option>
+            <option value="medina">المدينة المنورة دار الهجرة — عرض 24.4°</option>
+            <option value="cairo">القاهرة ومرصد ابن يونس — عرض 30.0°</option>
+            <option value="damascus">دمشق مرصد قاسيون — عرض 33.5°</option>
+            <option value="baghdad">بغداد دار الحكمة — عرض 33.3°</option>
+            <option value="paris">مرصد باريس الملكي — عرض 48.8°</option>
+            <option value="london">الجمعية الملكية بلندن — عرض 51.5°</option>
+          </select>
+        </div>
+
+        <div class="hero-action-buttons">
+          <button class="btn-brass-outline" id="btn-sound-toggle">🔊 الصوت: يعمل</button>
+          <button class="btn-brass-primary" id="btn-master-lang">English Edition</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ==========================================
+         FOUR PILLARS NAVIGATION TABS
+         ========================================== -->
+    <nav class="palace-nav-pillars">
+      <button class="nav-pillar-tab active" data-target="section-simulator">
+        <span>⚜</span>
+        <span>الأسطرلاب الفلكي الحي</span>
+      </button>
+
+      <button class="nav-pillar-tab" data-target="section-observatory">
+        <span>🌌</span>
+        <span>القبة السماوية والاستدلال بالنجوم</span>
+      </button>
+
+      <button class="nav-pillar-tab" data-target="section-academy">
+        <span>📜</span>
+        <span>أكاديمية الفلك والإسقاط المجسم</span>
+      </button>
+
+      <button class="nav-pillar-tab" data-target="section-blueprint">
+        <span>📐</span>
+        <span>المخططات الهندسية والشهادة الملكية</span>
+      </button>
+    </nav>
+
+    <!-- ==========================================
+         PILLAR 1: ASTROLABE LIVE SIMULATOR
+         ========================================== -->
+    <section class="pillar-section active" id="section-simulator">
+      <div class="simulator-layout">
+        
+        <!-- Main Canvas Stage -->
+        <div class="astrolabe-main-stage">
+          <div class="stage-top-bar">
+            <span class="face-badge-pill" id="current-face-badge">الوجه: أم الأسطرلاب والشبكة</span>
+            <button class="btn-brass-primary" id="btn-toggle-face">
+              <span>🔄</span>
+              <span>اقلب إلى ظهر الأسطرلاب (العضادة ومربع الظل)</span>
+            </button>
+          </div>
+
+          <div class="astrolabe-canvas-container">
+            <canvas id="astrolabe-master-canvas"></canvas>
+          </div>
+
+          <p style="font-size: 0.95rem; color: #cfbe9f; margin-top: 14px;">
+            💡 <em>حرّك الفأرة أو إصبعك لتدوير شبكة النجوم (الوجه) أو العضادة (الظهر) لمشاهدة الحسابات الفلكية اللحظية.</em>
+          </p>
+        </div>
+
+        <!-- Telemetry & Calculations Sidebar -->
+        <div class="telemetry-sidebar">
+          
+          <!-- Astronomical Telemetry Card -->
+          <div class="heritage-card">
+            <div class="card-title">
+              <span>🧭</span>
+              <span>الحسابات الفلكية اللحظية</span>
+            </div>
+
+            <div class="telemetry-row">
+              <span class="telemetry-label">ارتفاع الجرم المرصود (Altitude):</span>
+              <span class="telemetry-val" id="readout-altitude">45°</span>
+            </div>
+
+            <div class="telemetry-row">
+              <span class="telemetry-label">البرج الشمسي (Zodiac Sign):</span>
+              <span class="telemetry-val" id="readout-zodiac">الحمل Aries</span>
+            </div>
+
+            <div class="telemetry-row">
+              <span class="telemetry-label">سمت القبلة الكروي (Qibla Azimuth):</span>
+              <span class="telemetry-val" id="readout-qibla">100° شمالاً</span>
+            </div>
+
+            <div class="telemetry-row">
+              <span class="telemetry-label">الظل المبسوط (Shadow Square):</span>
+              <span class="telemetry-val" id="readout-shadow">12 أصابع</span>
+            </div>
+          </div>
+
+          <!-- Prayer Times Card -->
+          <div class="heritage-card">
+            <div class="card-title">
+              <span>🕌</span>
+              <span>مواقيت الصلاة الفلكية (حسب صفيحة الإقليم)</span>
+            </div>
+
+            <div class="prayer-times-grid">
+              <div class="prayer-box">
+                <div class="prayer-name">الفجر</div>
+                <div class="prayer-time" id="time-fajr">04:52</div>
+              </div>
+              <div class="prayer-box">
+                <div class="prayer-name">الظهر</div>
+                <div class="prayer-time" id="time-dhuhr">12:15</div>
+              </div>
+              <div class="prayer-box">
+                <div class="prayer-name">العصر</div>
+                <div class="prayer-time" id="time-asr">15:40</div>
+              </div>
+              <div class="prayer-box">
+                <div class="prayer-name">المغرب</div>
+                <div class="prayer-time" id="time-maghrib">18:25</div>
+              </div>
+              <div class="prayer-box" style="grid-column: span 2;">
+                <div class="prayer-name">العشاء</div>
+                <div class="prayer-time" id="time-isha">19:55</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         PILLAR 2: SKY OBSERVATORY & REAL CONSTELLATIONS
+         ========================================== -->
+    <section class="pillar-section" id="section-observatory">
+      <div class="observatory-layout">
+
+        <!-- Sky Dome Canvas -->
+        <div class="sky-dome-wrapper">
+          <canvas id="sky-dome-canvas"></canvas>
+        </div>
+
+        <!-- Star Navigation & Etymology Sidebar -->
+        <div class="telemetry-sidebar">
+          
+          <div class="heritage-card">
+            <div class="card-title">
+              <span>🌟</span>
+              <span>نجم الرصد المختار</span>
+            </div>
+
+            <div style="font-size: 1.4rem; font-weight: 700; color: var(--gold-bright); margin-bottom: 4px;" id="star-panel-name">
+              الجدي (Polaris)
+            </div>
+            <div style="font-size: 0.95rem; color: #baa88c; margin-bottom: 12px;" id="star-panel-bayer">
+              التسمية الفلكية: α UMi • القدر: 1.98
+            </div>
+
+            <div style="font-size: 1.05rem; line-height: 1.8; color: #fff6e0; border-top: 1px dashed rgba(200, 155, 60, 0.3); padding-top: 10px; margin-bottom: 14px;" id="star-panel-guide">
+              مفتاح الملاحة: يحدد جهة الشمال الجغرافي مباشرة وارتفاعه عن الأفق يساوي خط عرض موقعك.
+            </div>
+
+            <div style="font-size: 0.85rem; color: var(--gold-bright); font-family: monospace;" id="star-panel-coords">
+              RA: 37.9° | Dec: +89.3°
+            </div>
+          </div>
+
+          <div class="heritage-card">
+            <div class="card-title">
+              <span>✨</span>
+              <span>نجوم الاستدلال الملاحية الكبرى</span>
+            </div>
+            <div class="quick-star-selector">
+              <button class="btn-quick-star active" data-star="polaris">الجدي (الشمال)</button>
+              <button class="btn-quick-star" data-star="sirius">الشعرى اليمانية</button>
+              <button class="btn-quick-star" data-star="canopus">سهيل اليماني</button>
+              <button class="btn-quick-star" data-star="vega">النسر الواقع</button>
+              <button class="btn-quick-star" data-star="aldebaran">الدبران</button>
+              <button class="btn-quick-star" data-star="arcturus">السماك الرامح</button>
+              <button class="btn-quick-star" data-star="antares">قلب العقرب</button>
+              <button class="btn-quick-star" data-star="rigel">رجل الجوزاء</button>
+              <button class="btn-quick-star" data-star="betelgeuse">يد الجوزاء</button>
+              <button class="btn-quick-star" data-star="altair">النسر الطائر</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         PILLAR 3: CELESTIAL NAVIGATION ACADEMY
+         ========================================== -->
+    <section class="pillar-section" id="section-academy">
+      <div class="academy-parchment-folio">
+        
+        <div class="academy-header">
+          <div>
+            <div class="academy-badge" id="lesson-badge">الهندسة الكونية • Géométrie Céleste</div>
+            <h2 class="academy-title" id="lesson-title">كيف "يأتي" الأسطرلاب بالفضاء؟ سر الإسقاط المجسم</h2>
+          </div>
+          <span style="font-family: var(--font-ruqaa); font-size: 1.15rem; color: var(--gold-antique);" id="lesson-counter">الدرس 1 من 4</span>
+        </div>
+
+        <div class="academy-content-body" id="lesson-text">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <div class="academy-tip-box" id="lesson-tip">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <div class="academy-nav-controls">
+          <button class="btn-brass-outline" id="btn-prev-lesson" style="color: var(--ink-charcoal); border-color: var(--vellum-border);">
+            ← الدرس السابق
+          </button>
+          <button class="btn-brass-primary" id="btn-next-lesson">
+            الدرس التالي →
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         PILLAR 4: BLUEPRINT & COMMERCIAL SPECIFICATIONS
+         ========================================== -->
+    <section class="pillar-section" id="section-blueprint">
+      <div class="blueprint-layout">
+
+        <!-- Horological CAD Specification Sheet -->
+        <div class="blueprint-sheet">
+          <div class="blueprint-header">
+            <div>// ROYAL ANDALUSIAN ASTROLABE SPECIFICATION SHEET</div>
+            <div style="font-size: 0.8rem; color: #60a5fa;">TOLEDO-CORDOBA EDITION • HOROLOGICAL ARCHIVE</div>
+          </div>
+
+          <table class="blueprint-table">
+            <tr>
+              <td>INSTRUMENT TYPE</td>
+              <td>Planisphaeric Astronomical Astrolabe</td>
+            </tr>
+            <tr>
+              <td>MATER DIAMETER</td>
+              <td>215.0 mm (Royal Toledo Standard)</td>
+            </tr>
+            <tr>
+              <td>TYMPAN DIAMETER</td>
+              <td>192.5 mm interchangeable plates</td>
+            </tr>
+            <tr>
+              <td>ALLOY COMPOSITION</td>
+              <td>CuZn37 Gilded Brass (النحاس الأصفر الملكي)</td>
+            </tr>
+            <tr>
+              <td>PROJECTION TYPE</td>
+              <td>Stereographic from South Celestial Pole</td>
+            </tr>
+            <tr>
+              <td>OBLIQUITY OF ECLIPTIC</td>
+              <td>ε = 23° 26' 21.4" (Al-Zarqali Tables)</td>
+            </tr>
+            <tr>
+              <td>GRADUATIONS</td>
+              <td>360° Limb + 24 Equal Hours + Shadow Square 12</td>
+            </tr>
+            <tr>
+              <td>CURATOR & ARCHITECT</td>
+              <td>أ. طارق ابوعشي (Tareq Abuashi)</td>
+            </tr>
+          </table>
+
+          <div style="margin-top: 24px; display: flex; gap: 12px;">
+            <button class="btn-brass-primary" id="btn-export-json">تنزيل ملف المواصفات الهندسية (JSON)</button>
+          </div>
+        </div>
+
+        <!-- Illuminated Certificate of Authenticity -->
+        <div class="cert-presentation-box">
+          <div class="fleur-de-lis-crest">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" style="color: var(--gold-antique);">
+              <path d="M12 2C11.5 4 10 7 7 8C7 10 8 12 10 12.5C9.5 13.5 9 14.5 9 16C9 17.5 10 18.5 11 19C10.5 19.5 10 20.5 10 21.5H14C14 20.5 13.5 19.5 13 19C14 18.5 15 17.5 15 16C15 14.5 14.5 13.5 14 12.5C16 12 17 10 17 8C14 7 12.5 4 12 2Z"/>
+            </svg>
+          </div>
+
+          <h3 style="font-family: var(--font-amiri); font-size: 1.6rem; color: var(--gold-antique); margin-bottom: 8px;">
+            شهادة أصالة واعتماد متحفي
+          </h3>
+
+          <div style="font-family: var(--font-ruqaa); font-size: 1.8rem; color: var(--wax-red); margin: 12px 0;">
+            الأسطرلاب الفلكي الأندلسي الملكي
+          </div>
+
+          <p style="font-size: 1.05rem; line-height: 1.9; color: var(--ink-secondary); margin-bottom: 24px;">
+            نُفذ هذا العمل البرمجي والعلمي كتحفة تراثية متكاملة تجسد دقة الميكانيكا الفلكية وصناعة الساعات والآلات الكونية الكلاسيكية في الأندلس وحضارات العالم، ومطابق للمعايير الهندسية والمتحفية العالمية.
+          </p>
+
+          <div style="border-top: 1px solid var(--vellum-border); padding-top: 16px; display: flex; justify-content: space-around; align-items: center;">
+            <div style="text-align: right;">
+              <div style="font-family: var(--font-ruqaa); font-size: 1.25rem;">أ. طارق ابوعشي</div>
+              <div style="font-size: 0.85rem; color: #786650;">معلم وخبير الحوسبة والتراث الرقمي</div>
+            </div>
+
+            <button class="btn-brass-primary" id="btn-export-blueprint">
+              🖨️ طباعة المخطط والشهادة
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         PALACE FOOTER
+         ========================================== -->
+    <footer class="palace-master-footer">
+      <div class="footer-curator">الأسطرلاب الفلكي الأندلسي الملكي • Al-Asturlab Al-Andalusi</div>
+      <div style="font-size: 0.95rem; margin-top: 6px; color: #a8977c;">
+        صُمم وبُرمج كمنصة تجارية ومتحفية متكاملة لعلوم الفلك الكلاسيكي والملاحة بالنجوم
+      </div>
+      <div style="font-family: var(--font-ruqaa); font-size: 1.15rem; color: var(--gold-bright); margin-top: 8px;">
+        تطوير وإشراف: أ. طارق ابوعشي — Tareq Abuashi
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/audio-synthesizer.js"></script>
+  <script src="js/celestial-math.js"></script>
+  <script src="js/star-catalog.js"></script>
+  <script src="js/astrolabe-engine.js"></script>
+  <script src="js/sky-observatory.js"></script>
+  <script src="js/navigation-academy.js"></script>
+  <script src="js/blueprint-exporter.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
